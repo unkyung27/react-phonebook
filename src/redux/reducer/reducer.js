@@ -1,7 +1,8 @@
 import ContactList from "../../component/ContactList";
 
 let initialState = {
-    contactList:[]
+    contactList:[],
+    searchList:[]
 };
 
 function reducer(state=initialState, action){
@@ -17,6 +18,12 @@ function reducer(state=initialState, action){
                         phoneNumber: payload.phoneNumber
                     }
                 ]
+            };
+        case "SEARCH_LIST":
+            console.log("reducer 검색리스트", payload.searchList);
+            return{
+                ...state, 
+                searchList: payload.searchList
             };
         default: return {...state};
     }
